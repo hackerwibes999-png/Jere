@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: xenora-bot-hosting-service
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true
+    healthCheckPath: /healthz
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_ID
+        value: "8178629769"
+      - key: XENORA_INSTALL_TIMEOUT
+        value: "1800"
+      - key: XENORA_MAX_ZIP_FILES
+        value: "20000"
+      - key: XENORA_MAX_UNPACKED_MB
+        value: "2048"
+      - key: XENORA_MAX_WEBSITE_MB
+        value: "2048"
+      # Set this to the public URL Render gives your web service.
+      - key: XENORA_PUBLIC_BASE_URL
+        sync: false
