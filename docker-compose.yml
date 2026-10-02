@@ -1,0 +1,15 @@
+services:
+  xenora:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - xenora_data:/app/data
+      - xenora_hosted:/app/hosted_bots
+      - xenora_pending:/app/pending
+      - xenora_logs:/app/logs
+volumes:
+  xenora_data:
+  xenora_hosted:
+  xenora_pending:
+  xenora_logs:
