@@ -1,0 +1,17 @@
+[Unit]
+Description=XENORA Telegram Hosting Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/xenora
+EnvironmentFile=/opt/xenora/.env
+ExecStart=/usr/bin/python3 /opt/xenora/main.py
+Restart=always
+RestartSec=5
+TimeoutStopSec=30
+KillMode=control-group
+
+[Install]
+WantedBy=multi-user.target
